@@ -1,5 +1,12 @@
 import React, { useState, useRef } from "react";
 import "../assets/css/home.css"
+
+
+
+import { Scrollbars } from 'react-custom-scrollbars-2';
+
+
+
 const Home = () => {
   const data = [
     {
@@ -18,19 +25,19 @@ const Home = () => {
       description: "The Centre of Now. The most prestigious square kilometre in the world. Downtown Dubai is no stranger to such accolades, and yet it’s hard to overstate the prominence of this community."
     },
     {
-      imgFileName: "downtown-dubai.jpg",
-      title: "Downtown Dubai",
-      description: "The Centre of Now. The most prestigious square kilometre in the world. Downtown Dubai is no stranger to such accolades, and yet it’s hard to overstate the prominence of this community."
+      imgFileName: "dubai-hills-estate.jpg",
+      title: "Dubai Hills Estate",
+      description: "Sustainably designed, Dubai Hills Estate is a first of its kind destination. This masterfully-planned 2,700-acre multi-purpose development will form an integral part of the Mohammed Bin Rashid City."
     },
     {
-      imgFileName: "downtown-dubai.jpg",
-      title: "Downtown Dubai",
-      description: "The Centre of Now. The most prestigious square kilometre in the world. Downtown Dubai is no stranger to such accolades, and yet it’s hard to overstate the prominence of this community."
+      imgFileName: "dubai-marina.png",
+      title: "Dubai Marina",
+      description: "Dubai Marina is one of the world’s largest, most meticulously planned waterfront developments and offers the exhilaration and vibrancy of a chic, urban lifestyle together with all the advantages of living on the water."
     },
     {
-      imgFileName: "downtown-dubai.jpg",
-      title: "Downtown Dubai",
-      description: "The Centre of Now. The most prestigious square kilometre in the world. Downtown Dubai is no stranger to such accolades, and yet it’s hard to overstate the prominence of this community."
+      imgFileName: "emirates-living.jpg",
+      title: "Emirates Living",
+      description: "Launched in 2003, Emirates Living is a modern lifestyle community focused on outdoor leisure. Emirates Living offers a serene nature-filled sanctuary, with 8,659 premium villas nestled within 52.2 million square feet of lush greenery."
     },
   ];
 
@@ -101,7 +108,19 @@ const Home = () => {
 
       {/* Desktop View */}
       <div className="d-none d-md-block">
+
+
+
+
+
+        
         <div className="row">
+
+
+        
+
+
+
           {data.slice(startIndex, startIndex + 3).map((item, index) => (
             <div key={index} className="col-md-4">
               <img
@@ -112,53 +131,104 @@ const Home = () => {
                 alt={`Image ${startIndex + index + 1}`}
               />
 
+                        <div className="d-flex justify-content-center"
+                          style={{
+                    
+                            color: 'white', 
+                            marginTop:"-40px",
+                            fontWeight: 'bold',
+                            zIndex: 3,
+                          }}
+                        >
+                        {item.title}
+                        </div>
+
 
            
             </div>
           ))}
 
         </div>
-        <div className="d-flex justify-content-between">
+
+
+
+       
+
+
+
+
+        <div style={{marginTop:"-200px"}}>
 
         <button
               className="arrow-button"
               onClick={() => handleClick(-3)}
+              style={{marginLeft:"-20px"}}
               >
               &larr;
             </button>
 
 
+
             <button
-              className="arrow-button"
-              onClick={() => handleClick(3)}
-              >
-              &rarr;
-            </button>
+      className="arrow-button"
+      onClick={() => handleClick(-3)}
+      style={{position:"absolute", right:115}}
+      >
+      &rarr;
+    </button>
+
+
 
               </div>
+
+  
+         
+
+
+
+
+
+
       </div>
 
 
 
 
-<div
-      className="d-md-none"
-      ref={containerRef}
-      onWheel={handleScroll}
-      style={{ overflow: 'hidden' }}
+
+
+
+
+
+
+<Scrollbars
+    
     >
-      <div className="d-flex flex-row flex-nowrap">
-        {data.map((item, index) => (
-          <div key={index} className="mr-2">
-            <img
-              src={require(`../assets/images/${item.imgFileName}`)}
-              alt={`Slide ${index + 1}`}
-              style={{ width: '350px', height: '400px', marginRight:"20px"}}
-            />
-          </div>
-        ))}
+      <div className="d-md-none container-fluid p-0">
+        <div className="d-flex flex-row flex-nowrap">
+          {data.map((item, index) => (
+            <div key={index} className="mr-2">
+              <img
+                src={require(`../assets/images/${item.imgFileName}`)}
+                alt={`Slide ${index + 1}`}
+                style={{ width: '350px', height: '400px', marginRight:"20px"}}
+              />
+              
+              <div className="d-flex justify-content-center"
+                          style={{
+                    
+                            color: 'white', 
+                            marginTop:"-40px",
+                            fontWeight: 'bold',
+                            zIndex: 3,
+                          }}
+                        >
+                        {item.title}
+                        </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Scrollbars>
    
 
      
