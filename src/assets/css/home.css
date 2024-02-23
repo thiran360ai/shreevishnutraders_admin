@@ -30,8 +30,9 @@ body {
 
 
   .card-text-container {
-    height: 120px; 
+    height: 160px; 
     overflow: hidden;
+    justify-content: center;
   }
   
 
