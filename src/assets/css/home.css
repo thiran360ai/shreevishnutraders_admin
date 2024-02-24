@@ -2,9 +2,31 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
   
-  .container {
-    height: 100vh;
+
+
+
+
+  @media only screen and (max-width: 767px) {
+    /* Your mobile styles go here */
+  
+  
+    /* Add more styles as needed */
   }
+
+
+
+  @media only screen and (min-width: 768px) {
+    /* Your styles for larger screens go here */
+    .container {
+      height: 100vh;
+    }
+  
+    /* Add more styles as needed */
+  }
+
+
+
+
   
   .row {
     display: flex;

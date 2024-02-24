@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "../assets/css/home.css";
 
 import { Scrollbars } from "react-custom-scrollbars-2";
@@ -46,14 +46,8 @@ const Home = () => {
   const [startIndex, setStartIndex] = useState(0);
 
   const handleClick = () => {
+    console.log("btn clk");
     setStartIndex((prevIndex) => (prevIndex + 3) % data.length);
-  };
-
-  const containerRef = useRef(null);
-
-  const handleScroll = (event) => {
-    // Update the scrollLeft property of the container
-    containerRef.current.scrollLeft += event.deltaY;
   };
 
   return (
@@ -65,10 +59,10 @@ const Home = () => {
           <div className="row g-5">
             {data.map((item, index) => (
               <div key={index} className="col-lg-4 col-md-6">
-                <div className="card">
+                <div className="card rounded-0">
                   <img
                     src={require(`../assets/images/${item.imgFileName}`)}
-                    className="card-img-top"
+                    className="card-img-top rounded-0"
                     alt="Card image"
                     style={{ height: "250px" }}
                   />
@@ -87,10 +81,17 @@ const Home = () => {
           </div>
         </div>
 
-        <h1 className="text-center m-4">OUR SERVICES</h1>
+        <h1
+          className="text-center"
+          style={{ marginTop: "60px", marginBottom: "40px" }}
+        >
+          OUR SERVICES
+        </h1>
 
-        {/* Desktop View */}
-        <div className="d-none d-md-block position-relative">
+        <div
+          className="d-none d-md-block position-relative"
+          style={{ marginBottom: "20px" }}
+        >
           <div className="row">
             {data.slice(startIndex, startIndex + 3).map((item, index) => (
               <div key={index} className="col-md-4">
@@ -144,9 +145,11 @@ const Home = () => {
             </button>
           </div>
         </div>
+      </div>
 
+      <div style={{ height: "65vh", marginLeft: "30px" }}>
         <Scrollbars>
-          <div className="d-md-none container p-0">
+          <div className="d-md-none container-fluid p-0">
             <div className="d-flex flex-row flex-nowrap">
               {data.map((item, index) => (
                 <div key={index} className="mr-2">
